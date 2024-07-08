@@ -4,8 +4,12 @@
 
 :root {
     --primary-color: #0f1b4c;
+    --height-navbar: 90px;
 }
-
+html,
+body {
+    scroll-behavior: smooth;
+}
 html {
     font-size: 62.5%;
 }
@@ -46,16 +50,27 @@ a {
     overflow: hidden;
 }
 /* CSS */
-.header {
+.fixed-header {
     background-color: #e6f0ff;
-    height: 100vh;
+    padding-top: 26px;
+    position: sticky;
+    top: -26px;
+    z-index: 1;
+}
+.hero-wrap {
+    background-color: #e6f0ff;
+    height: calc(100vh - var(--height-navbar));
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     position: relative;
 }
 
 .navbar {
     display: flex;
     align-items: center;
-    padding-top: 38px;
+    /* padding-top: 38px; */
+    padding: 12px 0;
 }
 
 .navbar ul {
@@ -89,15 +104,11 @@ a {
     border-radius: 8px;
 }
 
-.hero {
-    margin-top: 130px;
-}
-
-.hero .info {
+.hero-wrap .info {
     width: 51%;
 }
 
-.hero .sub-title {
+.hero-wrap .sub-title {
     color: #687690;
     font-size: 1.8rem;
     font-weight: 500;
@@ -105,7 +116,7 @@ a {
     letter-spacing: 0.018rem;
 }
 
-.hero .title {
+.hero-wrap .title {
     color: #000336;
     font-size: 6.2rem;
     font-style: normal;
@@ -114,7 +125,7 @@ a {
     margin-top: 8px;
 }
 
-.hero .desc {
+.hero-wrap .desc {
     color: #5a6473;
     font-size: 1.8rem;
     font-style: normal;
@@ -478,7 +489,7 @@ a {
 
 /* ===========Subscription========= */
 .subscription {
-    margin-top: 90px;
+    margin-top: var(--height-navbar);
 }
 .subscription .body {
     position: relative;
